@@ -1,31 +1,204 @@
 / {
     macros {
-        vimsave: vimsave {
+        v_split: v_split {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp ESCAPE &kp COLON &kp W &kp RET>;
-            label = "VIMSAVE";
+            bindings = <&macro_tap &kp LC(B) &kp PRCNT>;
         };
 
-        skinnyarrow: skinnyarrow {
+        h_split: h_split {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp MINUS &kp GREATER_THAN>;
-            label = "SKINNYARROW";
+            bindings = <&macro_tap &kp LC(B) &kp DQT>;
         };
 
-        fatarrow: fatarrow {
+        detach_session: detach_session {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp EQUAL &kp GREATER_THAN>;
-            label = "FATARROW";
+            bindings = <&kp LC(B) &kp D>;
         };
 
-        pipeopr: pipeopr {
+        sync_panes: sync_panes {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp PIPE &kp GREATER_THAN>;
-            label = "PIPEOPR";
+            bindings = <&kp LC(B) &kp SPACE>;
+        };
+
+        next_pane: next_pane {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(B) &kp O>;
+        };
+
+        show_sessions: show_sessions {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(B) &kp S>;
+        };
+
+        create_or_attach: create_or_attach {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp T>
+                , <&macro_tap &kp M>
+                , <&macro_tap &kp U>
+                , <&macro_tap &kp X>
+                , <&macro_tap &kp SPC>
+                , <&macro_tap &kp N>
+                , <&macro_tap &kp E>
+                , <&macro_tap &kp W>
+                , <&macro_tap &kp MINUS>
+                , <&macro_tap &kp S>
+                , <&macro_tap &kp E>
+                , <&macro_tap &kp S>
+                , <&macro_tap &kp S>
+                , <&macro_tap &kp I>
+                , <&macro_tap &kp O>
+                , <&macro_tap &kp N>
+                , <&macro_tap &kp SPC>
+                , <&macro_tap &kp MINUS>
+                , <&macro_tap &kp A>
+                , <&macro_tap &kp SPC>
+                , <&macro_tap &kp MINUS>
+                , <&macro_tap &kp S>
+                , <&macro_tap &kp SPC>
+            ;
+        };
+
+        shrug: shrug { // shrug emoji ¯\_(ツ)_/¯
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <20>;
+            bindings
+                // ¯ (Macros)
+                = <&macro_press &kp LCTRL &kp LSHFT>
+                , <&macro_tap &kp U>
+                , <&macro_release &kp LCTRL &kp LSHFT>
+                , <&macro_tap &kp N0 &kp N0 &kp A &kp F &kp SPC>
+                // \
+                , <&macro_tap &kp BACKSLASH>
+                , <&macro_tap &kp BACKSLASH>
+                // _
+                , <&macro_tap &kp UNDER>
+                // (
+                , <&macro_tap &kp LPAR>
+                // ツ (Katakana Letter Tu)
+                , <&macro_press &kp LCTRL &kp LSHFT>
+                , <&macro_tap &kp U>
+                , <&macro_release &kp LCTRL &kp LSHFT>
+                , <&macro_tap &kp N3 &kp N0 &kp C &kp N4 &kp SPC>
+                // )
+                , <&macro_tap &kp RPAR>
+                // _
+                , <&macro_tap &kp UNDER>
+                // /
+                , <&macro_tap &kp FSLH>
+                // ¯ (Macron)
+                , <&macro_press &kp LCTRL &kp LSHFT>
+                , <&macro_tap &kp U>
+                , <&macro_release &kp LCTRL &kp LSHFT>
+                , <&macro_tap &kp N0 &kp N0 &kp A &kp F &kp SPC>
+                ;
+        };
+
+        gcm: gcm { // git commit WIP
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <20>;
+            bindings = <
+                &macro_tap &kp G &kp I &kp T &kp SPACE
+                &kp C &kp O &kp M &kp M &kp I &kp T &kp SPACE
+                &kp MINUS &kp A &kp M &kp SPACE
+                &kp DQT &kp LS(W) &kp LS(I) &kp LS(P) &kp DQT
+            >;
+        };
+
+        lgtm: lgtm { // LGTM Approval
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <20>;
+            bindings = <
+                &macro_tap
+                &kp LS(L) &kp LS(G) &kp LS(T) &kp LS(M)
+                &kp SPACE &kp MINUS &kp SPACE
+                &kp LS(A) &kp P &kp P &kp R &kp O &kp V &kp E &kp D &kp EXCL
+            >;
+        };
+
+        sudo: sudo { // SUDO_BANG_BANG
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <10>;
+            tap-ms = <20>;
+            bindings
+                = <&macro_tap &kp S &kp U &kp D &kp O>  // "sudo"
+                , <&macro_tap &kp SPACE>                // space
+                , <&macro_tap &kp EXCL &kp EXCL>        // "!!"
+                , <&macro_tap &kp RET>                  // Enter key
+                ;
+        };
+        
+        clip_hist: clip_hist { // CLIPBOARD_HISTORY
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings 
+                = <&macro_press &kp LGUI>
+                , <&macro_tap &kp V>
+                , <&macro_release &kp LGUI>
+                ;
+        };
+        
+        new_dir: new_dir {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL &kp LSHFT>
+                , <&macro_tap &kp N>
+                , <&macro_release &kp LCTRL &kp LSHFT>
+                ;
+        };
+
+        grave_macro: grave_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp GRAVE>
+                , <&macro_tap &kp GRAVE>
+                , <&macro_tap &kp LEFT_ARROW>
+                ;
+        };
+
+        minus_macro: minus_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp SPACE>
+                , <&macro_tap &kp MINUS>
+                , <&macro_tap &kp SPACE>
+                ;
+        };
+
+        equals_macro: equals_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp SPACE>
+                , <&macro_tap &kp EQUAL>
+                , <&macro_tap &kp SPACE>
+                ;
+        };
+
+        home_macro: home_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_tap &kp TILDE>
+                , <&macro_tap &kp FSLH>
+                ;
         };
     };
 };
