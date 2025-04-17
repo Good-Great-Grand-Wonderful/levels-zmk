@@ -1,6 +1,6 @@
 // vim: set ft=dts:
 
-#include "levels.dtsi"
+#include "arcduo.dtsi"
 
 / {
   chosen {

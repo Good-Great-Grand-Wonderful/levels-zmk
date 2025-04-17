@@ -1,0 +1,71 @@
+/ {
+    combos {
+        compatible = "zmk,combos";
+
+        CapsWord {
+            bindings = <&caps_word>;
+            key-positions = <13 16>;
+            layers = <0>;
+        };
+
+        MiddleClick {
+            bindings = <&mkp MCLK>;
+            key-positions = <23 31>;
+        };
+
+        RightClick {
+            bindings = <&mkp RCLK>;
+            key-positions = <13 31>;
+        };
+
+        LeftParen {
+            bindings = <&kp LEFT_PARENTHESIS>;
+            key-positions = <12 13>;
+            layers = <3>;
+        };
+
+        RightParen {
+            bindings = <&kp RIGHT_PARENTHESIS>;
+            key-positions = <16 17>;
+            layers = <3>;
+        };
+
+        LeftBracket {
+            bindings = <&kp RIGHT_BRACKET>;
+            key-positions = <18 19>;
+            layers = <3>;
+        };
+        RightBracket {
+            bindings = <&kp RIGHT_BRACKET>;
+            key-positions = <18 19>;
+            layers = <3>;
+        };
+
+        RightBrace {
+            bindings = <&kp RIGHT_BRACE>;
+            key-positions = <7 8>;
+            layers = <3>;
+        };
+
+        RightGreaterThan {
+            bindings = <&kp GREATER_THAN>;
+            key-positions = <27 28>;
+            layers = <3>;
+        };
+
+        BASE_or_EXTRAS {
+            bindings = <&td_bore>;
+            key-positions = <32 33>;
+        };
+
+        BASE_or_SLOW {
+            bindings = <&td_bore>;
+            key-positions = <32 10>;
+        };
+
+        // PhotoLayer {
+        //     bindings = <&tog 5>;
+        //     key-positions = <2 3>;
+        // };
+    };
+};

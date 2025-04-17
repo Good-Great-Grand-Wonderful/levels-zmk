@@ -1,0 +1,31 @@
+/ {
+    macros {
+        vimsave: vimsave {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp ESCAPE &kp COLON &kp W &kp RET>;
+            label = "VIMSAVE";
+        };
+
+        skinnyarrow: skinnyarrow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp MINUS &kp GREATER_THAN>;
+            label = "SKINNYARROW";
+        };
+
+        fatarrow: fatarrow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp EQUAL &kp GREATER_THAN>;
+            label = "FATARROW";
+        };
+
+        pipeopr: pipeopr {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp PIPE &kp GREATER_THAN>;
+            label = "PIPEOPR";
+        };
+    };
+};

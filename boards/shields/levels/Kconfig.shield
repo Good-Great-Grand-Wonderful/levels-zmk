@@ -1,8 +1,0 @@
-config SHIELD_LEVELS_DONGLE
-  def_bool $(shields_list_contains,levels_dongle)
-
-config SHIELD_LEVELS_LEFT
-  def_bool $(shields_list_contains,levels_left)
-
-config SHIELD_LEVELS_RIGHT
-  def_bool $(shields_list_contains,levels_right)

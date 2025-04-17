@@ -20,8 +20,18 @@
 ---
 include:
   - board: nice_nano_v2
-    shield: levels_left
+    shield: arcduo_left
   - board: nice_nano_v2
-    shield: levels_right
+    shield: arcduo_right
   - board: seeeduino_xiao_ble
-    shield: levels_dongle prospector_adapter
+    shield: arcduo_dongle prospector_adapter
+
+  # Firmware Reset
+  - board: nice_nano_v2
+    shield: settings_reset
+    format: reset
+    artifact-name: firmware_reset_nano_v2
+  - board: seeeduino_xiao_ble
+    shield: settings_reset
+    format: reset
+    artifact-name: firmware_reset_xiao
