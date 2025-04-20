@@ -10,7 +10,7 @@
             bindings = <&kp>, <&kp>;  // hold, tap
         };
 
-        hm_right: homerow_mod_right {
+        hmr: homerow_mod_right {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
@@ -22,7 +22,7 @@
             hold-trigger-on-release;
         };
 
-        hm_left: homerow_mod_left {
+        hml: homerow_mod_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "balanced";
@@ -92,7 +92,7 @@
         td_bore: BASE_or_EXTRA {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            bindings = <&mo 6>, <&to 0>;
+            bindings = <&mo 4>, <&to 0>;
         };
 
         td_grave: DoubleTap_Grave {
