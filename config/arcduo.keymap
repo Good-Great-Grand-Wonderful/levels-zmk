@@ -29,7 +29,7 @@
 // #define MOUSE   5
 
   keymap {
-        compatible = "zmk,keymap";
+       compatible = "zmk,keymap";
         BASE {
             display-name = "Base";     
             bindings = <
@@ -120,4 +120,5 @@
                                                    // ╰────────────────┴────────────────┴────────────────╯       ╰──────────────────┴────────────────┴────────────────╯           
             >;
         };
+  };
 };
