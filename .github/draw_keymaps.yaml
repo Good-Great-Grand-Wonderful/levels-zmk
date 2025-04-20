@@ -1,0 +1,267 @@
+# Reusable workflow for drawing and committing an automated keymap diagram
+name: Draw ZMK keymaps
+on:
+  workflow_call:
+    inputs:
+      keymap_patterns:
+        description: "Path specification for keymaps to be parsed"
+        default: "config/*.keymap"
+        required: false
+        type: string
+      config_path:
+        description: "Path to the keymap-drawer configuration file, ignored if non-existent"
+        default: "keymap-drawer/config.yaml"
+        required: false
+        type: string
+      west_config_path:
+        description: "Path to the folder containing west.yml, e.g. `config`. If specified, west will be initialized to fetch modules defined in west.yml"
+        default: ""
+        required: false
+        type: string
+      output_folder:
+        description: "Output folder for SVG and YAML files"
+        default: "keymap-drawer"
+        required: false
+        type: string
+      json_path:
+        description: "Path containing <keymap>.json physical layout description files, ignored if non-existent"
+        default: "config"
+        required: false
+        type: string
+      parse_args:
+        description: "Map of keyboard names to extra `keymap parse` args, e.g. `corne:'--layer-names Def Lwr Rse Fun'`"
+        default: "arcduo: '-b keymap-drawer/arcduo.yaml'"
+        required: false
+        type: string
+      draw_args:
+        description: "Map of keyboard names to extra `keymap draw` args, e.g. `corne:'-k corne_rotated -l LAYOUT_split_3x5_3'`"
+        default: ""
+        required: false
+        type: string
+      commit_message:
+        description: "Commit message for updated images. Ignored if `amend_commit` is `true`."
+        default: "keymap-drawer render"
+        required: false
+        type: string
+      amend_commit:
+        description: "Whether to amend the last commit instead of creating a new one. Make sure you understand the implications of rewriting the branch history if you use this option!"
+        default: true
+        required: false
+        type: boolean
+      install_branch:
+        description: "Install keymap-drawer from a git branch, use empty for pypi release (default)"
+        default: ""
+        required: false
+        type: string
+      install_repo:
+        description: "Install keymap-drawer from a different git remote, primarily for testing changes using a keymap-drawer fork. Ignored if `install_branch` is unset/empty."
+        default: "https://github.com/caksoylar/keymap-drawer.git"
+        required: false
+        type: string
+      destination:
+        description: "Add the output files to a commit, as artifacts or both, values: `commit`, `artifact`, `both`"
+        default: "commit"
+        required: false
+        type: string
+      artifact_name:
+        description: "Name of the produced artifact containing SVG and YAML outputs. Ignored if `destination` is `commit`."
+        default: "keymap_layouts"
+        required: false
+        type: string
+      fail_on_error:
+        description: "Fail the action if an error occurs during parse/draw"
+        default: true
+        required: false
+        type: boolean
+    outputs:
+      drawings:
+        description: "Archive with keymap in YAML and drawing in SVG formats"
+        value: ${{ jobs.draw.outputs.drawings }}
+
+jobs:
+  draw:
+    runs-on: ubuntu-latest
+    outputs:
+      drawings: ${{ steps.artifact-upload-step.outputs.artifact-id }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # So the reference to the parent commit is available when amending
+          # See:
+          # - https://github.com/stefanzweifel/git-auto-commit-action#using---amend-and---no-edit-as-commit-options
+          # - https://github.com/stefanzweifel/git-auto-commit-action/issues/159#issuecomment-845347950
+          # - https://github.com/actions/checkout
+          fetch-depth: ${{ (inputs.amend_commit == true && 2) || 1 }}
+          submodules: recursive
+
+      - name: Install keymap-drawer (pypi)
+        if: inputs.install_branch == ''
+        run: python3 -m pip install keymap-drawer
+
+      - name: Install keymap-drawer (git)
+        if: inputs.install_branch != ''
+        run: python3 -m pip install "git+${{ inputs.install_repo }}@${{ inputs.install_branch }}"
+
+      - name: Install west
+        if: inputs.west_config_path != ''
+        run: python3 -m pip install west
+
+      - name: Cache west modules
+        if: inputs.west_config_path != ''
+        uses: actions/cache@v4
+        continue-on-error: true
+        env:
+          cache_name: cache-zephyr-3.5.0-modules
+        with:
+          path: |
+            modules/
+            tools/
+            zephyr/
+            bootloader/
+            zmk/
+          key: ${{ runner.os }}-build-${{ env.cache_name }}-${{ hashFiles('**/west.yml', '**/build.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache_name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: West Init
+        if: inputs.west_config_path != ''
+        run: |
+          ls -Rhl $GITHUB_WORKSPACE
+          west init -l ${{ inputs.west_config_path }}
+
+      - name: West Update
+        if: inputs.west_config_path != ''
+        run: west update
+
+      - name: Draw keymaps
+        id: draw
+        env:
+          KEYMAP_raw_binding_map: >
+            {
+              "&bootloader": "BOOT LDR",
+              "&mkp RCLK": "R CLK",
+              "&mkp LCLK": "L CLK",
+              "&mkp MCLK": "Mid CLK",
+              "&mkp MB4": "BACK",
+              "&mkp MB5": "FWD",
+              "&mmv MOVE_UP": "MOVE UP",
+              "&mmv MOVE_DOWN": "MOVE D",
+              "&mmv MOVE_LEFT": "MOVE L",
+              "&mmv MOVE_RIGHT": "MOVE R",
+              "&msc MOVE_UP": "WHEEL D",
+              "&msc MOVE_DOWN": "WHEEL U",
+              "&msc MOVE_LEFT": "WHEEL L",
+              "&msc MOVE_RIGHT": "WHEEL R",
+              "&h_split": "HSPLIT",
+              "&v_split": "VSPLIT",
+              "&caps_word": "CAPS WORD",
+              "&td_bore": "L_BASE L_EXTRA",
+              "&tdmt": "L1/BS LCLICK",
+              "&tdbt": "L2/ESC RCLICK",
+              "&td_layers": "L_BASE L_PHOTO L_GAME",
+              "&td_cursor": "SCRL SLOW",
+              "&td_home": "~/",
+              "&td_equals": "=",
+              "td_hyphen": "-",
+              "td_grave": "`",
+              "detach_session": "DETACH",
+              "create_or_attach": "NEW SESH",
+              "sync_panes": "SYNC PANES",
+              "next_pane": "NEXT PANE",
+              "show_sessions": "SHOW SESHS",
+              "sync_panes": "-",
+              "&shrug": "SHRUG",
+              "&lgtm": "LGTM",
+              "&gcm": "GIT COMMIT",
+              "&clip_hist": "CLIP HIST",
+              "&shit": "SHIT SUDO",
+              "&new_dir": "NEW DIR",
+              "&py_iter": "PYTHON LOOP",
+              "&js_iter": "JS LOOP",
+              "&studio_unlock": "ZMK Studio"
+            }
+        run: |
+          get_args() {
+              local keyboard=$2
+              eval set -- "$1"
+              for arg; do
+                  local key=${arg%%:*}
+                  local val=${arg#*:}
+                  if [ "$key" = "$keyboard" ]; then
+                      echo "$val"
+                      break
+                  fi
+              done
+          }
+
+          declare -a DRAWINGS
+          error_occurred=0
+          mkdir -p "${{ inputs.output_folder }}"
+
+          config_path="${{ inputs.config_path }}"
+          [ -e "$config_path" ] && config_arg=(-c "$config_path") || config_arg=()
+          echo "INFO: using config args: ${config_arg[@]}"
+          for keymap_file in ${{ inputs.keymap_patterns }}; do
+              keyboard=$(basename -s .keymap "$keymap_file")
+              echo "INFO: drawing for $keyboard"
+
+              parse_args=$(get_args "${{ inputs.parse_args }}" "$keyboard")
+              echo "INFO:   got extra parse args: $parse_args"
+              draw_args=$(get_args "${{ inputs.draw_args }}" "$keyboard")
+              echo "INFO:   got extra draw args: $draw_args"
+
+              json_path="${{ inputs.json_path }}"
+              if [ -f "$json_path/${keyboard}.json" ]; then
+                  echo "INFO:   found $json_path/${keyboard}.json";
+                  draw_args+=" -j $json_path/${keyboard}.json"
+              fi
+
+              keymap "${config_arg[@]}" parse -z "$keymap_file" $parse_args >"${{ inputs.output_folder }}/$keyboard.yaml" \
+              && keymap "${config_arg[@]}" draw "${{ inputs.output_folder }}/$keyboard.yaml" $draw_args >"${{ inputs.output_folder }}/$keyboard.svg" \
+              || {
+                  echo "ERROR: parsing or drawing failed for $keyboard!"
+                  error_occurred=1
+              }
+              DRAWINGS+=(\"${{ inputs.output_folder }}/$keyboard.yaml\" \"${{ inputs.output_folder }}/$keyboard.svg\")
+          done
+          IFS=','
+          echo "DRAWINGS=[${DRAWINGS[*]}]" >> $GITHUB_OUTPUT
+          unset IFS
+
+          if [ "${{ inputs.fail_on_error }}" == "true" ] && [ $error_occurred -eq 1 ]; then
+              exit 1
+          fi
+
+      - name: Get last commit message
+        id: last_commit_message
+        if: inputs.amend_commit == true && (inputs.destination == 'commit' || inputs.destination == 'both')
+        run: |
+          echo "msg=$(git log -1 --pretty=%s)" >> $GITHUB_OUTPUT
+
+      - name: Commit updated images
+        if: ( inputs.destination == 'commit' || inputs.destination == 'both' )
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          file_pattern: "${{ inputs.output_folder }}/*.svg ${{ inputs.output_folder }}/*.yaml"
+          # So the previous commit is amended instead of creating a new one when desired
+          # See:
+          # - https://github.com/stefanzweifel/git-auto-commit-action#using---amend-and---no-edit-as-commit-options
+          # - https://github.com/stefanzweifel/git-auto-commit-action/issues/159#issuecomment-845347950
+          # - https://github.com/actions/checkout
+          commit_message: "${{ (inputs.amend_commit == true && steps.last_commit_message.outputs.msg) || inputs.commit_message }}"
+          commit_options: "${{ (inputs.amend_commit == true && '--amend --no-edit') || '' }}"
+          push_options: "${{ (inputs.amend_commit == true && '--force-with-lease') || '' }}"
+          skip_fetch: ${{ inputs.amend_commit == true }}
+
+      - name: Artifact upload
+        id: artifact-upload-step
+        if: ( inputs.destination == 'artifact' || inputs.destination == 'both' )
+        uses: actions/upload-artifact@v4
+        with:
+          name: "${{ inputs.artifact_name }}"
+          path: |
+            ${{ join(fromJSON(steps.draw.outputs.DRAWINGS), '
+            ') }}
