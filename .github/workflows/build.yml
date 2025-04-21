@@ -6,7 +6,28 @@ on:
     - cron: "0 0 1 */2 *" # run every two months to keep artifacts from expiring
 
 jobs:
+  convert-and-store-keymap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Convert keymap
+        run: python scripts/convert_keymap.py -c q2c --in-path "$GITHUB_WORKSPACE/config/arcduo.keymap"
+
+      - name: Upload Keymap Files
+        uses: actions/upload-artifact@v4
+        with:
+          name: keymap_files
+          path: ${{ github.workspace }}/config/*.keymap
+
   build:
+    needs: convert-and-store-keymap
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
 
 
