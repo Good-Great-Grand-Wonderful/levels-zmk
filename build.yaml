@@ -21,3 +21,4 @@
 include:
   - board: levels54_left
   - board: levels54_right
+    shield: settings-reset
