@@ -9,7 +9,7 @@
 #include "levels54-pinctrl.dtsi"
 
 &physical_layout0 {
-  transform = <&matrix_transform>;
+  transform = <&matrix_transform0>;
 };
 
 / {
@@ -35,7 +35,7 @@
     };
   };
 
-  matrix_transform: keymap_transform0 {
+  matrix_transform0: keymap_transform0 {
     compatible = "zmk,matrix-transform";
     columns = <12>;
     rows = <5>;
