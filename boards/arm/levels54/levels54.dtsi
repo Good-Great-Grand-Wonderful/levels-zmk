@@ -112,14 +112,6 @@
     };
 };
 
-&spi0 {
-  status = "okay";
-  compatible = "nordic,nrf-spim";
-  pinctrl-0 = <&spi0_default>;
-  pinctrl-1 = <&spi0_sleep>;
-  pinctrl-names = "default", "sleep";
-};
-
 &adc {
 	status = "okay";
 };
@@ -141,7 +133,14 @@
 };
 
 &spi0 {
-    status = "okay";
+  status = "okay";
+  compatible = "nordic,nrf-spim";
+  pinctrl-0 = <&spi0_default>;
+  pinctrl-1 = <&spi0_sleep>;
+  pinctrl-names = "default", "sleep";
+};
+
+&spi1 {
     compatible = "nordic,nrf-spim";
     pinctrl-0 = <&spi1_default>;
     pinctrl-1 = <&spi1_sleep>;
