@@ -3,7 +3,7 @@
 
 #include <dt-bindings/zmk/matrix_transform.h>
 #include "levels54-layouts.dtsi"
-#include "levels54-pinctl.dtsi"
+#include "levels54-pinctrl.dtsi"
 
 &physical_layout0 {
   transform = <&matrix_transform>;
