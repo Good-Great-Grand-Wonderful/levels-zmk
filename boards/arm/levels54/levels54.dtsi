@@ -89,6 +89,37 @@
   };
 };
 
+&pinctrl {
+    spi0_default: spi0_default {
+        group1 {
+            psels 
+              = <NRF_PSEL(SPIM_SCK, 0, 8)>
+              , <NRF_PSEL(SPIM_MOSI, 0, 12)>
+              , <NRF_PSEL(SPIM_MISO, 0, 12)>
+              ;
+        };
+    };
+
+    spi0_sleep: spi0_sleep {
+        group1 {
+            psels 
+              = <NRF_PSEL(SPIM_SCK, 0, 8)>
+              , <NRF_PSEL(SPIM_MOSI, 0, 12)>
+              , <NRF_PSEL(SPIM_MISO, 0, 12)>
+              ;
+            low-power-enable;
+        };
+    };
+};
+
+&spi0 {
+  status = "okay";
+  compatible = "nordic,nrf-spim";
+  pinctrl-0 = <&spi0_default>;
+  pinctrl-1 = <&spi0_sleep>;
+  pinctrl-names = "default", "sleep";
+};
+
 &adc {
 	status = "okay";
 };
@@ -109,7 +140,7 @@
 	status = "okay";
 };
 
-&spi1 {
+&spi0 {
     status = "okay";
     compatible = "nordic,nrf-spim";
     pinctrl-0 = <&spi1_default>;
