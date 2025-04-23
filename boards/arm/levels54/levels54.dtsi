@@ -2,6 +2,9 @@
 #include <nordic/nrf52840_qiaa.dtsi>
 
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <dt-bindings/zmk/input_transform.h>
+#include <input/processors.dtsi>
+
 #include "levels54-layouts.dtsi"
 #include "levels54-pinctrl.dtsi"
 
