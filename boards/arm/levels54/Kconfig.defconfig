@@ -2,6 +2,9 @@
 
 if BOARD_LEVELS54_LEFT
 
+config ZMK_KEYBOARD_NAME
+  default "Levels 54"
+
 config BOARD
   default "level54 left"
 
@@ -11,6 +14,9 @@ config ZMK_SPLIT_ROLE_CENTRAL
 endif # BOARD_LEVELS54_LEFT
 
 if BOARD_LEVELS54_RIGHT
+
+config ZMK_KEYBOARD_NAME
+  default "Levels 54 rt"
 
 config BOARD
   default "level54 right"
