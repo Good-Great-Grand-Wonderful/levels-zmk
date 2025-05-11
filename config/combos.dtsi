@@ -41,25 +41,26 @@
         };
 
         LeftBracket {
-            bindings = <&kp RIGHT_BRACKET>;
-            key-positions = <18 19>;
+            bindings = <&kp LEFT_BRACKET>;
+            key-positions = <2 3>;
             layers = <3>;
         };
+
         RightBracket {
             bindings = <&kp RIGHT_BRACKET>;
-            key-positions = <18 19>;
+            key-positions = <6 7>;
+            layers = <3>;
+        };
+
+        LeftBrace {
+            bindings = <&kp LEFT_BRACE>;
+            key-positions = <22 23>;
             layers = <3>;
         };
 
         RightBrace {
             bindings = <&kp RIGHT_BRACE>;
-            key-positions = <7 8>;
-            layers = <3>;
-        };
-
-        RightGreaterThan {
-            bindings = <&kp GREATER_THAN>;
-            key-positions = <27 28>;
+            key-positions = <26 27>;
             layers = <3>;
         };
 
@@ -78,10 +79,5 @@
             bindings = <&td_bore>;
             key-positions = <32 10>;
         };
-
-        // PhotoLayer {
-        //     bindings = <&tog 5>;
-        //     key-positions = <2 3>;
-        // };
     };
 };
