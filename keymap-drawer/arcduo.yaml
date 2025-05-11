@@ -225,32 +225,24 @@ layers:
 combos:
 - p: [13, 16]
   k: CAPS WORD
-  l: [Base]
 - p: [23, 31]
   k: Mid CLK
 - p: [13, 31]
   k: R CLK
 - p: [12, 13]
   k: (
-  l: [Symbols]
 - p: [16, 17]
   k: )
-  l: [Symbols]
 - p: [2, 3]
   k: '['
-  l: [Symbols]
 - p: [6, 7]
   k: ']'
-  l: [Symbols]
 - p: [22, 23]
   k: '{'
-  l: [Symbols]
 - p: [26, 27]
   k: '}'
-  l: [Symbols]
 - p: [10, 11]
   k: ESC
-  l: [Base]
 - p: [32, 33]
   k: L_BASE L_EXTRA
 - p: [32, 10]
