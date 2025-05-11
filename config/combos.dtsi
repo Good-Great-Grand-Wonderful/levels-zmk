@@ -64,7 +64,7 @@
             layers = <3>;
         };
 
-        ESC {
+        Escape {
             bindings = <&kp ESC>;
             key-positions = <10 11>;
             layers = <0>;
