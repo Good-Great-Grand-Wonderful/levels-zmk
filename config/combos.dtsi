@@ -63,6 +63,12 @@
             layers = <3>;
         };
 
+        ESC {
+            bindings = <&kp ESC>;
+            key-positions = <10 11>;
+            layers = <0>;
+        };
+
         BASE_or_EXTRAS {
             bindings = <&td_bore>;
             key-positions = <32 33>;
