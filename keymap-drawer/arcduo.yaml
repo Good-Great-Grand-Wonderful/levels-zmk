@@ -34,9 +34,9 @@ layers:
   - '&td_tab'
   - L CLK
   - {t: RETURN, h: Extra}
-  - '&td_bs'
-  - '&td_space'
   - {t: RETURN, h: Mouse}
+  - '&td_space'
+  - '&td_bs'
   Num:
   - ''
   - ''
@@ -219,9 +219,9 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - RETURN
+  - {t: RETURN, type: held}
   - {t: ▽, type: trans}
-  - {type: held}
+  - ''
 combos:
 - p: [13, 16]
   k: CAPS WORD
