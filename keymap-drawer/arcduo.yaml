@@ -48,16 +48,16 @@ layers:
   - {t: '8', h: F8}
   - {t: '9', h: F9}
   - {t: '0', h: F10}
-  - ''
-  - ''
-  - ''
-  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - ''
   - '&td_hyphen'
-  - {t: '4', h: F4}
-  - {t: '5', h: F5}
-  - {t: '6', h: F6}
-  - {t: +, h: F11}
+  - {t: '4', h: RSHIFT}
+  - {t: '5', h: RCTRL}
+  - {t: '6', h: RALT}
+  - {t: +, h: RCMD}
   - ''
   - ''
   - ''
