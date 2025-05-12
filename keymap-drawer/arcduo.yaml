@@ -38,22 +38,22 @@ layers:
   - '&td_space'
   - '&td_bs'
   Num:
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - '*'
+  - {t: '1', h: F1}
+  - {t: '2', h: F2}
+  - {t: '3', h: F3}
+  - {t: '4', h: F4}
+  - {t: '5', h: F5}
+  - {t: '6', h: F6}
   - {t: '7', h: F7}
   - {t: '8', h: F8}
   - {t: '9', h: F9}
-  - F10
+  - {t: '0', h: F10}
   - ''
   - ''
   - ''
   - ''
   - ''
-  - '-'
+  - '&td_hyphen'
   - {t: '4', h: F4}
   - {t: '5', h: F5}
   - {t: '6', h: F6}
@@ -71,26 +71,26 @@ layers:
   - ''
   - ''
   - {t: ▽, type: trans}
-  - .
+  - {t: ▽, type: trans}
   - '0'
-  - ''
+  - .
   Nav:
   - ''
   - ''
   - ''
   - ''
   - ''
-  - '&detach_session'
-  - '&create_or_attach'
+  - ''
+  - ''
   - UP
-  - '&show_sessions'
-  - '&sync_panes'
+  - ''
+  - ''
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - ''
-  - HSPLIT
+  - ''
   - LEFT
   - DOWN
   - RIGHT
@@ -100,7 +100,7 @@ layers:
   - ''
   - ''
   - ''
-  - VSPLIT
+  - ''
   - HOME
   - PG DN
   - PG UP
