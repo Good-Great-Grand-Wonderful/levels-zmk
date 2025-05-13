@@ -84,7 +84,7 @@ layers:
   - '&'
   - UP
   - ''
-  - ''
+  - {t: INSERT, h: RSHIFT}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
