@@ -24,7 +24,7 @@ include:
   - board: nice_nano_v2
     shield: arcduo_right
   - board: seeeduino_xiao_ble
-    shield: arcduo_dongle prospector_adapter
+    shield: arcduo_dongle dongle_screen
 
   # Firmware Reset
   - board: nice_nano_v2
