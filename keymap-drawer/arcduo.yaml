@@ -152,8 +152,8 @@ layers:
   - SHRUG
   - LGTM
   - GIT COMMIT
-  - ''
-  - BRI INC
+  - F23
+  - F24
   - BT(0)
   - BT(1)
   - BT(2)
@@ -163,7 +163,7 @@ layers:
   - ''
   - ''
   - ''
-  - BRI DEC
+  - ''
   - ''
   - PREV
   - PP
