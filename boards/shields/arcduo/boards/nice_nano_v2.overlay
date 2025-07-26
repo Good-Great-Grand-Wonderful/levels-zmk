@@ -47,6 +47,7 @@
     evt-type = <INPUT_EV_REL>;
     x-input-code = <INPUT_REL_X>;
     y-input-code = <INPUT_REL_Y>;
+    wakeup-source;
   };
 
   trackball2: trackball2@0 {
@@ -59,5 +60,6 @@
     evt-type = <INPUT_EV_REL>;
     x-input-code = <INPUT_REL_X>;
     y-input-code = <INPUT_REL_Y>;
+    wakeup-source;
   };
 };
