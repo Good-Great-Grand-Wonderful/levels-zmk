@@ -6,6 +6,26 @@
     model = "levels54_left";
     compatible = "levels54_left";
   };
+
+  aliases {
+    led-red = &led0;
+    led-green = &led1;
+    led-blue = &led2;
+  };
+
+  leds {
+    compatible = "gpio-leds";
+    status = "okay";
+    led0: led_0 {
+      gpios = <&gpio1 10 GPIO_ACTIVE_LOW>;
+    };
+    led1: led_1 {
+      gpios = <&gpio0 3 GPIO_ACTIVE_LOW>;
+    };
+    led2: led_2 {
+      gpios = <&gpio0 28 GPIO_ACTIVE_LOW>;
+    };
+  };
 };
 
 &kscan0 {
@@ -13,19 +33,19 @@
 
   row-gpios
     = <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-    , <&gpio1 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
     , <&gpio1 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+    , <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
     , <&gpio0 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
     , <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
     ;
 
   col-gpios
-    = <&gpio0 22 GPIO_ACTIVE_HIGH>
-    , <&gpio1 6 GPIO_ACTIVE_HIGH>
-    , <&gpio0 20 GPIO_ACTIVE_HIGH>
+    = <&gpio1 13 GPIO_ACTIVE_HIGH>
     , <&gpio1 4 GPIO_ACTIVE_HIGH>
-    , <&gpio1 11 GPIO_ACTIVE_HIGH>
-    , <&gpio1 13 GPIO_ACTIVE_HIGH>
+    , <&gpio1 6 GPIO_ACTIVE_HIGH>
+    , <&gpio1 2 GPIO_ACTIVE_HIGH>
+    , <&gpio0 10 GPIO_ACTIVE_HIGH>
+    , <&gpio0 9 GPIO_ACTIVE_HIGH>
     ;
 };
 
