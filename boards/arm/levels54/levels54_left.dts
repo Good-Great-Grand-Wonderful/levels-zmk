@@ -59,10 +59,6 @@ nice_view_spi: &spi1 {
     cs-gpios = <&gpio1 11 GPIO_ACTIVE_HIGH>;
 };
 
-&pro_micro_i2c {
-    status = "disabled";
-};
-
 &kscan0 {
   compatible = "zmk,kscan-gpio-matrix";
 
