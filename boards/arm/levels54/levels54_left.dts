@@ -34,7 +34,7 @@
             psels 
               = <NRF_PSEL(SPIM_SCK, 0, 20)>
               , <NRF_PSEL(SPIM_MOSI, 0, 22)>
-              , <NRF_PSEL(SPIM_MISO, 0, 22)>
+              , <NRF_PSEL(SPIM_MISO, 0, 25)>
               ;
         };
     };
@@ -44,7 +44,7 @@
             psels 
               = <NRF_PSEL(SPIM_SCK, 0, 20)>
               , <NRF_PSEL(SPIM_MOSI, 0, 22)>
-              , <NRF_PSEL(SPIM_MISO, 0, 22)>
+              , <NRF_PSEL(SPIM_MISO, 0, 25)>
               ;
             low-power-enable;
         };
@@ -57,6 +57,10 @@ nice_view_spi: &spi1 {
     pinctrl-1 = <&spi1_sleep>;
     pinctrl-names = "default", "sleep";
     cs-gpios = <&gpio1 11 GPIO_ACTIVE_HIGH>;
+};
+
+&pro_micro_i2c {
+    status = "disabled";
 };
 
 &kscan0 {
