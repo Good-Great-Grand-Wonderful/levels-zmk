@@ -5,8 +5,9 @@ include:
     cmake-args: -DCONFIG_ZMK_STUDIO=y
   - board: levels54_left
     snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    cmake-args: -DCONFIG_ZMK_DISPLAY=y -DCONFIG_ZMK_STUDIO=y
     shield: nice_view
   - board: levels54_right
   - board: levels54_right
     shield: nice_view
+    cmake-args: -DCONFIG_ZMK_DISPLAY=y
