@@ -170,11 +170,11 @@
         colemak_dh {
             display-name = "Colemak DH";
             bindings = <
-&lt 5 TILDE     &kp N1           &kp N2           &kp N3        &kp N4             &kp N5    &kp N6     &kp N7              &kp N8        &kp N9            &kp N0       &lt 5 SINGLE_QUOTE
-&kp LEFT_ALT    &kp Q            &kp W            &kp F         &kp P              &kp B     &kp J      &kp L               &kp U         &kp Y             &kp SEMI     &mt RIGHT_ALT BSLH
-&sk LEFT_SHIFT  &hml LEFT_GUI A  &hml LEFT_ALT R  &hml LCTRL S  &hml LEFT_SHIFT T  &kp G     &kp M      &hmr RIGHT_SHIFT N  &hmr RCTRL E  &hmr RIGHT_ALT I  &hmr RGUI O  &sk RIGHT_SHIFT
-&kp LCTRL       &kp Z            &kp X            &kp C         &kp D              &kp V     &kp K      &kp H               &kp COMMA     &kp DOT           &lt 6 SLASH  &kp RCTRL
-                                                  &kp LEFT_GUI  &lt 4 ESCAPE       &tog 1    &lt 2 RET  &kp BACKSPACE       &lt 3 DELETE
+&lt 5 TILDE     &kp N1           &kp N2           &kp N3        &kp N4             &kp N5         &kp N6     &kp N7              &kp N8        &kp N9            &kp N0       &lt 5 SINGLE_QUOTE
+&kp LEFT_ALT    &kp Q            &kp W            &kp F         &kp P              &kp B          &kp J      &kp L               &kp U         &kp Y             &kp SEMI     &mt RIGHT_ALT BSLH
+&sk LEFT_SHIFT  &hml LEFT_GUI A  &hml LEFT_ALT R  &hml LCTRL S  &hml LEFT_SHIFT T  &kp G          &kp M      &hmr RIGHT_SHIFT N  &hmr RCTRL E  &hmr RIGHT_ALT I  &hmr RGUI O  &sk RIGHT_SHIFT
+&kp LCTRL       &kp Z            &kp X            &kp C         &kp D              &kp V          &kp K      &kp H               &kp COMMA     &kp DOT           &lt 6 SLASH  &kp RCTRL
+                                                  &kp LEFT_GUI  &lt 4 ESCAPE       &lt 1 SPACE    &lt 2 RET  &kp BACKSPACE       &lt 3 DELETE
             >;
         };
 
