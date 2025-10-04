@@ -1,16 +1,21 @@
 manifest:
   remotes:
     - name: zmkfirmware
-      url-base: https://github.com/zmkfirmware
-    - name: badjeff
-      url-base: https://github.com/badjeff
+      url-base: https://github.com/Good-Great-Grand-Wonderful
+    - name: efogdev
+      url-base: https://github.com/efogdev
+    - name: caksoylar
+      url-base: https://github.com/caksoylar
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: v0.2.1
+      revision: gggw/crosses
       import: app/west.yml
     - name: zmk-pmw3610-driver
-      remote: badjeff
+      remote: efogdev
+      revision: main
+    - name: zmk-input-processor-report-rate-limit
+      remote: efogdev
       revision: main
   self:
     path: config
