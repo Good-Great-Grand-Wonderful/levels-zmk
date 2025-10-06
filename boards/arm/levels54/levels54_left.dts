@@ -31,14 +31,10 @@
     ;
 };
 
-&trackball_peripheral_listener {
-    status = "okay";
-};
-
 &spi0 {
     cs-gpios = <&gpio0 8 GPIO_ACTIVE_LOW>;
 
-    trackball_central: trackball_central@0 {
+    trackball_peripheral: trackball_peripheral@0 {
         status = "okay";
         compatible = "pixart,pmw3610";
         reg = <0>;
@@ -57,8 +53,7 @@
     };
 };
 
-// Overrides for the input listener node
-&trackball_central_listener {
-    status = "okay";
-    device = <&trackball_central>;
+// Overrides for the input-split child node
+&trackball_peripheral_split {
+    device = <&trackball_peripheral>;
 };
