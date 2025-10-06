@@ -1,6 +1,6 @@
 ---
 include:
   - board: levels54_left
+  - board: levels54_right
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
-  - board: levels54_right
