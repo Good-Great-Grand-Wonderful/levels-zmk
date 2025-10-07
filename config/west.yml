@@ -17,5 +17,8 @@ manifest:
     - name: zmk-input-processor-report-rate-limit
       remote: efogdev
       revision: main
+    - name: zmk-rgbled-widget
+      remote: caksoylar
+      revision: main
   self:
     path: config
