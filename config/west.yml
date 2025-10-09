@@ -1,7 +1,7 @@
 manifest:
   remotes:
     - name: zmkfirmware
-      url-base: https://github.com/Good-Great-Grand-Wonderful
+      url-base: https://github.com/zmk
     - name: efogdev
       url-base: https://github.com/efogdev
     - name: caksoylar

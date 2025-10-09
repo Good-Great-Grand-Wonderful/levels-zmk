@@ -1,0 +1,16 @@
+file_format: "1"
+id: levels54
+name: Levels54
+type: board
+arch: arm
+url: https://ergokeyboards.com
+features:
+  - keys
+  - studio
+  - pointer
+outputs:
+  - usb
+  - ble
+siblings:
+  - levels54_left
+  - levels54_right

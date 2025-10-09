@@ -1,0 +1,18 @@
+identifier: levels54
+name: Levels54
+url: https://ergokeyboards.com
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+supported:
+  - adc
+  - ble
+  - gpio
+  - ieee802154
+  - pwm
+  - spi
+  - usb_device
+  - watchdog
