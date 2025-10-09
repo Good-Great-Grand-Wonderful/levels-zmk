@@ -20,5 +20,8 @@ manifest:
     - name: zmk-rgbled-widget
       remote: caksoylar
       revision: main
+    - name: zmk-input-processor-xyz
+      remote: badjeff
+      revision: main
   self:
     path: config
