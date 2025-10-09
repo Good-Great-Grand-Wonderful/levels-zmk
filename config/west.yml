@@ -1,7 +1,7 @@
 manifest:
   remotes:
     - name: zmkfirmware
-      url-base: https://github.com/zmkfirmware
+      url-base: https://github.com/Good-Great-Grand-Wonderful
     - name: efogdev
       url-base: https://github.com/efogdev
     - name: caksoylar
@@ -11,7 +11,7 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: v0.3.0
+      revision: gggw/crosses
       import: app/west.yml
     - name: zmk-pmw3610-driver
       remote: efogdev
