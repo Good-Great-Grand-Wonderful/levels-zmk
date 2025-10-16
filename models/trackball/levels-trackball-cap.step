@@ -10,7 +10,7 @@ FILE_DESCRIPTION(
 
 FILE_NAME(
 /* name */ 'levels-trackball-cap.step',
-/* time_stamp */ '2025-10-15T19:08:12-05:00',
+/* time_stamp */ '2025-10-16T08:18:44-05:00',
 /* author */ (''),
 /* organization */ (''),
 /* preprocessor_version */ 'ST-DEVELOPER v20.1',
@@ -1979,19 +1979,19 @@ SOLID_ANGLE_UNIT()
 #1776=SHAPE_REPRESENTATION('',(#851,#979),#1765);
 #1777=SHAPE_REPRESENTATION('',(#852),#1766);
 #1778=PRODUCT_DEFINITION_CONTEXT('part definition',#1786,'design');
-#1779=PRODUCT_DEFINITION('LevelsGrande','LevelsGrande v38',#1781,#1778);
+#1779=PRODUCT_DEFINITION('LevelsGrande','LevelsGrande v39',#1781,#1778);
 #1780=PRODUCT_DEFINITION('Carrier','Carrier',#1782,#1778);
 #1781=PRODUCT_DEFINITION_FORMATION('',$,#1788);
 #1782=PRODUCT_DEFINITION_FORMATION('',$,#1789);
-#1783=PRODUCT_RELATED_PRODUCT_CATEGORY('LevelsGrande v38',
-'LevelsGrande v38',(#1788));
+#1783=PRODUCT_RELATED_PRODUCT_CATEGORY('LevelsGrande v39',
+'LevelsGrande v39',(#1788));
 #1784=PRODUCT_RELATED_PRODUCT_CATEGORY('Carrier','Carrier',(#1789));
 #1785=APPLICATION_PROTOCOL_DEFINITION('international standard',
 'automotive_design',2009,#1786);
 #1786=APPLICATION_CONTEXT(
 'Core Data for Automotive Mechanical Design Process');
 #1787=PRODUCT_CONTEXT('part definition',#1786,'mechanical');
-#1788=PRODUCT('LevelsGrande','LevelsGrande v38',$,(#1787));
+#1788=PRODUCT('LevelsGrande','LevelsGrande v39',$,(#1787));
 #1789=PRODUCT('Carrier','Carrier',$,(#1787));
 #1790=PRESENTATION_STYLE_ASSIGNMENT((#1796));
 #1791=PRESENTATION_STYLE_ASSIGNMENT((#1797));
