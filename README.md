@@ -27,9 +27,9 @@ Every material here is chosen with purpose and durability in mind.
 - Complete: Fully assembled, tested and ready to use
 - Endgame: The flagship version, featuring a black walnut bottom case that adds natural warmth, weight, and presence
 
-A Tool Worth Using
+### A Tool Worth Using
 
-The Levels54 isn’t about hype. It’s about engineering, feel, and longevity. Whether you’re coding, designing, or in the flow of work, it’s built to keep your hands aligned, your wrists relaxed, and your mind focused.
+Whether you’re coding, designing, or in the flow of work, it’s built to keep your hands aligned, your wrists relaxed, and your mind focused.
 
 Control without compromise.
 
