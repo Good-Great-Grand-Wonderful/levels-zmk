@@ -6,7 +6,7 @@ Levels54 is for people who care about how things are made and how they feel. Eve
 
 ### Dual Precision Trackballs
 
-Each half of the keyboard features a 31.75 mm custom trackball (with a 30 mm POM supplement), mounted on Silicon Nitride G5 precision ceramic static bearings. The motion is exceptionally smooth and stable, with zero wobble and consistent control. A Nylon 11 carrier adds refined form and visual character.
+Each half of the keyboard features a 34 mm Perrix  trackball, mounted on Silicon Nitride G5 precision ceramic static bearings. The motion is exceptionally smooth and stable, with zero wobble and consistent control. A Nylon 11 carrier adds refined form and visual character.
 
 ### For Builders & Tinkerers
 
@@ -36,7 +36,7 @@ Control without compromise.
 ### Specifications
 
 - 54 Key MX layout with hot swap sockets
-- 31.75mm Custom Trackballs (with 30mm POM supplement)
+- 34mm Perrix Trackballs
 - VIK connector on both sides for extensibility
 - G5 Precision Ceramic Static Trackball Bearings
 - 315 Stainless Switch Plates
