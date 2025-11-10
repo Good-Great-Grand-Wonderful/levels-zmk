@@ -6,7 +6,7 @@ Levels54 is for people who care about how things are made and how they feel. Eve
 
 ### Dual Precision Trackballs
 
-Each half of the keyboard features a 34 mm Perrix  trackball, mounted on Silicon Nitride G5 precision ceramic static bearings. The motion is exceptionally smooth and stable, with zero wobble and consistent control. A Nylon 11 carrier adds refined form and visual character.
+Each half of the keyboard features a 34 mm Perixx  trackball, mounted on Silicon Nitride G5 precision ceramic static bearings. The motion is exceptionally smooth and stable, with zero wobble and consistent control. A Nylon 11 carrier adds refined form and visual character.
 
 ### For Builders & Tinkerers
 
