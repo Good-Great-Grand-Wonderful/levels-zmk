@@ -36,7 +36,7 @@ Control without compromise.
 ### Specifications
 
 - 54 Key MX layout with hot swap sockets
-- 34mm Perrix Trackballs
+- 34mm Perixx Trackballs
 - VIK connector on both sides for extensibility
 - G5 Precision Ceramic Static Trackball Bearings
 - 315 Stainless Switch Plates
