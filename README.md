@@ -14,7 +14,7 @@ The keyboard offers a 54-key hot-swap MX layout so you can choose exactly how it
 
 ### Materials That Matter
 
-- 315 stainless switch plates provide rigidity and precision
+- 316 stainless switch plates provide rigidity and precision
 - HT-PLA cases deliver dimensional stability and a soft textured finish
 - DSA blank keycaps offer a clean and uniform feel
 - Nylon 11 trackball carrier and power switches contribute to a solid look and durable build
