@@ -39,7 +39,7 @@ Control without compromise.
 - 34mm Perixx Trackballs
 - VIK connector on both sides for extensibility
 - G5 Precision Ceramic Static Trackball Bearings
-- 315 Stainless Switch Plates
+- 316 Stainless Switch Plates
 - DSA Profile Blank Keycaps
 - HT-PLA Cases (Black walnut bottom on Endgame)
 - Nylon 11 Trackball Carrier and power switches
