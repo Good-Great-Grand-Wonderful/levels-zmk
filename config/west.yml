@@ -1,29 +1,18 @@
 manifest:
+  defaults:
+    revision: v0.3
   remotes:
     - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+    - name: Good-Great-Grand-Wonderful
       url-base: https://github.com/Good-Great-Grand-Wonderful
-    - name: efogdev
-      url-base: https://github.com/efogdev
-    - name: caksoylar
-      url-base: https://github.com/caksoylar
-    - name: badjeff
-      url-base: https://github.com/badjeff
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: gggw/crosses
       import: app/west.yml
-    - name: zmk-pmw3610-driver
-      remote: efogdev
+    - name: gggw-zmk-keebs
+      remote: Good-Great-Grand-Wonderful
       revision: main
-    - name: zmk-input-processor-report-rate-limit
-      remote: efogdev
-      revision: main
-    - name: zmk-rgbled-widget
-      remote: caksoylar
-      revision: main
-    - name: zmk-input-processor-xyz
-      remote: badjeff
-      revision: main
+      import: config/west.yml
   self:
     path: config
