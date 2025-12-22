@@ -25,7 +25,7 @@ Every material here is chosen with purpose and durability in mind.
 
 - Kit: For those who build it themselves
 - Complete: Fully assembled, tested and ready to use
-- Endgame: The flagship version, featuring a black walnut bottom case that adds natural warmth, weight, and presence
+- Limited: The flagship version, featuring brass machined power switches a black walnut bottom and trackball carrier that adds natural warmth, weight, and presence
 
 ### A Tool Worth Using
 
