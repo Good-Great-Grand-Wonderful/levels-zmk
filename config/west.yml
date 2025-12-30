@@ -1,6 +1,6 @@
 manifest:
   defaults:
-    revision: v0.3
+    revision: main
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
@@ -12,7 +12,7 @@ manifest:
       import: app/west.yml
     - name: gggw-zmk-keebs
       remote: Good-Great-Grand-Wonderful
-      revision: main
+      revision: zephyr-4.1
       import: config/west.yml
   self:
     path: config
